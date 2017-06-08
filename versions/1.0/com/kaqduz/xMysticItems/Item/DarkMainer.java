@@ -13,6 +13,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import com.kaqduz.xMysticItems.Util.MysticItemManager;
 
@@ -27,12 +28,12 @@ public class DarkMainer extends MysticItem {
 
 static ItemStack itemek(ItemStack metaa){
 	ItemMeta meta = metaa.getItemMeta();
-	meta.setDisplayName("§5§kab§r§5§lDark Mainer§kbm");
+	meta.setDisplayName("Â§5Â§kabÂ§rÂ§5Â§lDark MainerÂ§kbm");
     List<String> lore = new ArrayList<String>();
-    lore.add("§8§oThe fastest known pickaxe. Destroys and collects blocks near to you");
-    lore.add("§8Break - radius: §63 blocks");
-    lore.add("§aEach use destroys the item by 10%.");
-    lore.add("§aBlocks under player will not be destroyed.");
+    lore.add("Â§8Â§oThe fastest known pickaxe. Destroys and collects blocks near to you");
+    lore.add("Â§8Break - radius: Â§63 blocks");
+    lore.add("Â§aEach use destroys the item by 10%.");
+    lore.add("Â§aBlocks under player will not be destroyed.");
     meta.addEnchant(Enchantment.DURABILITY, 6, true);
     meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 6, true);
     meta.addEnchant(Enchantment.SILK_TOUCH, 1, true);
@@ -47,16 +48,23 @@ static ItemStack itemek(ItemStack metaa){
 
 
 @Override
-public void onUse(PlayerInteractEvent e){
+public void onUse(final PlayerInteractEvent e){
 		List<Block> blocks = getNearbyBlocks(e.getPlayer().getLocation(), 3);
-		for(Block b : blocks){
-			if(b.getLocation().getBlockY() < e.getPlayer().getLocation().getBlockY() - 1 && b.getType() != Material.AIR && b.getType() != Material.WATER && b.getType() != Material.LAVA && b.getType() != Material.BEDROCK && b.getType() != Material.OBSIDIAN && b.getType() != Material.STATIONARY_WATER && b.getType() != Material.STATIONARY_LAVA){
+		for(final Block b : blocks){
+			if(b.getLocation().getBlockY() > e.getPlayer().getLocation().getBlockY() - 1 && b.getType() != Material.AIR && b.getType() != Material.WATER && b.getType() != Material.LAVA && b.getType() != Material.BEDROCK && b.getType() != Material.OBSIDIAN && b.getType() != Material.STATIONARY_WATER && b.getType() != Material.STATIONARY_LAVA){
+				new BukkitRunnable(){
+	        	    @Override
+	        	    public void run(){
+	        	    	
+	        	    	if(b.getType() != Material.STONE)
+	        				e.getPlayer().getWorld().dropItem(e.getPlayer().getLocation(), new ItemStack(b.getType()));
+	        				if(b.getType() != Material.CHEST)
+	        				b.setType(Material.AIR);
+	        				else b.breakNaturally();
+
+	        	    }
+	        	    }.runTaskLater(instance.getPlugin(), 5);
 				
-				if(b.getType() != Material.STONE)
-				e.getPlayer().getWorld().dropItem(e.getPlayer().getLocation(), new ItemStack(b.getType()));
-				if(b.getType() != Material.CHEST)
-				b.setType(Material.AIR);
-				else b.breakNaturally();
 				
 				
 				
