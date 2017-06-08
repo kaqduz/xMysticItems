@@ -28,7 +28,6 @@ public MysticItemManager manager(){
 
 
 return getxMysticItems().manager;
-
 }
 ```
 You can now create new item class, remember it must extend "MysticItem" class
@@ -41,12 +40,8 @@ ATTACKABLE when item will be based on attack effects i.e burn, hurt etc,
 DEFENDABLE when item will be based on defend effects i.e damage-block, damage-reduction etc,
 DEATHACCESSABLE when item will access death event i.e instant respawn, lighting effect after death etc ,
 CUSTOM with this type you can do everything based on Bukkit;
-
-
-
 ```
 Remember that MysticItem base class implements listener so u can use Event Handler 
-
 
 ```
 public class Dagger extends MysticItem {
@@ -70,24 +65,14 @@ static ItemStack itemek(ItemStack metaa){
     i.setItemMeta(meta);
     return i;
 }
-
-
+```
 ```
 Usable items calls void "onUse(PlayerInteractEvent e)" when used  ;
 Attackable items calls voids "onAttack(EntityDamageByEntityEvent e) and onAttackPassive(EntityDamageByEntityEvent e)" when player attacked someone ;
 Defendable items calls voids "onDefend(EntityDamageEvent e) and onDeffendPassive(EntityDamageEvent e)" when player gets any damage;
 DeathAccessable items calls void "onDeath(PlayerDeathEvent e)" when player dies with item;
-
+```
 In those voids u can do everthing you want with event.
-
-
-
-
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 
 ## Authors
 
