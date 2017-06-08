@@ -4,7 +4,7 @@ Add custom, mitical items to your server!
 
 ### Installing
 
-Download latest version above, and simply put in in "plugins" folder
+Download latest version above, and simply put it in "plugins" folder
 
 ## API
 
@@ -12,7 +12,7 @@ xMysticItems provides API for making your own Mystic Item.
 
 ### Using API
 
-Firstly you need to get instance of xMysticItems plugin through PluginManager in your main plugin class
+Firstly you need to get instance of xMysticItems plugin through PluginManager in your main plugin class:
 
 ```
 public Plugin getxMysticItems() {
@@ -20,7 +20,7 @@ public Plugin getxMysticItems() {
     }
 ```
 
-Then you have to get manager variable in the same class
+Then you have to get manager variable in the same class:
 
 
 ```
@@ -30,7 +30,7 @@ public MysticItemManager manager(){
 return getxMysticItems().manager;
 }
 ```
-You can now create new item class, remember it must extend "MysticItem" class
+You can now create new item class, remember it must extend "MysticItem" class. 
 You need to know, what type of item will be your MysticItem.
 Plugin allows to use 5 types of items:
 
@@ -41,7 +41,7 @@ DEFENDABLE when item will be based on defend effects i.e damage-block, damage-re
 DEATHACCESSABLE when item will access death event i.e instant respawn, lighting effect after death etc ,
 CUSTOM with this type you can do everything based on Bukkit;
 ```
-Remember that MysticItem base class implements listener so u can use Event Handler 
+Remember that MysticItem base class implements listener so u can use Event Handler; 
 
 ```
 public class Dagger extends MysticItem {
