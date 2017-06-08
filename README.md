@@ -76,7 +76,7 @@ In those voids u can do everthing you want with event.
 
 ## Authors
 
-* ** [kaqduz](https://github.com/kaqduz) ** *
+*  [kaqduz](https://github.com/kaqduz)
 
 See also the list of [contributors](https://github.com/kaqduz/xMysticItems/contributors) who participated in this project.
 
@@ -84,4 +84,4 @@ See also the list of [contributors](https://github.com/kaqduz/xMysticItems/contr
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## README.md template [from](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+## README.md template [from here](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
