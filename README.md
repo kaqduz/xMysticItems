@@ -4,7 +4,7 @@ Add custom, mitical items to your server!
 
 ### Installing
 
-Download latest version above, and simply put it in "plugins" folder
+Download latest version [here](https://dev.bukkit.org/projects/xmysticitems/files/2432204), and simply put it in "plugins" folder
 
 ## API
 
